@@ -1,0 +1,51 @@
+$borderColor: #d6d6d6;
+$btnColor: #363151;
+
+@import "../resources/variables";
+
+.event__list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem auto;
+
+  width: 100%;
+  max-width: 70rem;
+  border-bottom: 1px solid $borderColor;
+  padding: 1rem;
+}
+
+.event__item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.event__image {
+  margin: 0 2rem;
+}
+
+.event__details {
+  white-space: nowrap;
+}
+
+.details__btn {
+  border: 1px solid $btnColor;
+  border-radius: 2px;
+  background: $btnColor;
+  outline: none;
+  height: 2rem;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem;
+  &:hover {
+    background: $btnHover;
+  }
+}
+
+.location__title {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: $greyColor;
+}

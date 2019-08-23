@@ -1,0 +1,38 @@
+.form-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-control h1 {
+  border-bottom: 5px solid #5101d1;
+}
+
+.form-control input {
+  border: none;
+  border-bottom: 1px solid #5101d1;
+  outline: none;
+  margin: 0.8rem 0;
+  width: 15rem;
+}
+
+.form-control button {
+  border: 1px solid #5101d1;
+  outline: none;
+  background-color: rgba(1, 209, 209, 0);
+  padding: 0.4rem 2rem;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.submit-btn:hover {
+  background: #5101d1;
+  color: #ffffff;
+}
+
+.register-link {
+  display: inline-block;
+  margin: 0.5rem 0;
+  text-decoration: none;
+  color: #5101d1;
+}

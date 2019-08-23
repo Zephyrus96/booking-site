@@ -1,0 +1,67 @@
+.navbar__container {
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.navbar__list {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar__list-item {
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.navbar__list-item a {
+  text-decoration: none;
+  color: #363151;
+}
+
+.navbar__list-item .blob {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.navbar__list-item .pink-blob {
+  -webkit-transform: translate(-50%, -20%);
+          transform: translate(-50%, -20%);
+}
+
+.navbar__list-item .green-blob {
+  -webkit-transform: translate(-40%, -36%);
+          transform: translate(-40%, -36%);
+}
+
+.navbar__list-item .blue-blob {
+  -webkit-transform: translate(-40%, -20%);
+          transform: translate(-40%, -20%);
+}
+
+.horizontal-rule {
+  width: 90%;
+  margin: 1.5rem auto;
+  border: 1px solid #eaedee;
+}
+
+@media only screen and (max-width: 785px) {
+  .navbar__container {
+    display: none;
+  }
+}
+/*# sourceMappingURL=navbar.css.map */
