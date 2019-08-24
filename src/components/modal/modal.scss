@@ -1,4 +1,4 @@
-$primaryColor: #363151;
+@import "../resources/variables";
 
 @mixin applyColumnFlex() {
   display: flex;
@@ -56,13 +56,16 @@ $primaryColor: #363151;
   input {
     width: 100%;
     height: 2rem;
+    border: 2px solid $greyColor;
+    outline: none;
     &:focus {
-      border: 1px solid $primaryColor;
+      outline: 2px solid $mainDarkColor;
     }
   }
 
   label {
     align-self: flex-start;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -74,8 +77,8 @@ $primaryColor: #363151;
   input {
     width: 100%;
     outline: none;
-    background: $primaryColor;
-    border: 1px solid $primaryColor;
+    background: $mainDarkColor;
+    border: 1px solid $mainDarkColor;
     color: #fff;
     height: 2rem;
     &:hover {
@@ -89,7 +92,7 @@ $primaryColor: #363151;
   margin: 1rem auto;
   a {
     text-decoration: none;
-    color: $primaryColor;
+    color: $mainDarkColor;
   }
 }
 

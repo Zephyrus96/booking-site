@@ -40,7 +40,7 @@ const Topbar = props => {
   const logout = () => {
     setLoading(true);
     setTimeout(() => {
-      removeCookie("jwtCookie");
+      removeCookie("jwtCookie", { path: "/" });
       authContext.setToken(null);
       setLoading(false);
       props.history.push("/");

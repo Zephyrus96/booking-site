@@ -3,7 +3,9 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import Backdrop from "../backdrop/backdrop";
 import validator from "validator";
+import { ErrorAlert, SuccessAlert } from "../alerts/alerts";
 import { AuthContext } from "../../context/auth-context";
+import { ModalContext } from "../../context/modal-context";
 import { useInput } from "../../hooks/input-hook";
 import { withRouter } from "react-router-dom";
 import { useCookies } from "react-cookie";
@@ -11,6 +13,7 @@ import "./modal.css";
 
 const SignInModal = props => {
   const authContext = useContext(AuthContext);
+  const modalContext = useContext(ModalContext);
 
   const [cookies, setCookie] = useCookies(["jwtCookie"]);
 
@@ -80,9 +83,12 @@ const SignInModal = props => {
               maxAge: 60 * 60 * 24 * 7 //7 days
             });
             authContext.setToken(cookies);
-            console.log(authContext.token);
             resetEmail();
             resetPassword();
+            setTimeout(() => {
+              modalContext.setAuthClicked(false);
+              modalContext.setSignUp(false);
+            }, 1500);
             props.history.push("/");
           }
         });
@@ -92,22 +98,8 @@ const SignInModal = props => {
   return (
     <React.Fragment>
       <div className="modal">
-        {errors.length > 0 && (
-          <div className="modal__errors">
-            <ul className="modal__errors-list">
-              {errors.map((error, i) => (
-                <li key={i} className="modal__errors-item">
-                  {error}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        {loggedIn && (
-          <div className="modal__success">
-            <h4>Log in successful!</h4>
-          </div>
-        )}
+        {errors.length > 0 && <ErrorAlert errors={errors} />}
+        {loggedIn && <SuccessAlert message={"Log in successful!"} />}
         <header className="modal__header">
           <h1>Sign In. Get Going.</h1>
           <small>

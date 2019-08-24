@@ -3,13 +3,25 @@ import axios from "axios";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import { AuthContext } from "../../context/auth-context";
+import { ModalContext } from "../../context/modal-context";
 import "./bookings.scss";
+import { AuthAlert } from "../../components/alerts/alerts";
 
 const BookingsPage = () => {
   const authContext = useContext(AuthContext);
-
+  const modalContext = useContext(ModalContext);
   const [bookingList, setBookingList] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const signInClicked = () => {
+    modalContext.setAuthClicked(true);
+    modalContext.setSignUp(false);
+  };
+
+  const signUpClicked = () => {
+    modalContext.setAuthClicked(true);
+    modalContext.setSignUp(true);
+  };
 
   // const getBookings = () => {
   //   let requestBody = {
@@ -64,9 +76,10 @@ const BookingsPage = () => {
   return (
     <div className="bookings">
       {!authContext.token && (
-        <div className="not__authenticated">
-          <h1>Please sign in to view your bookings!</h1>
-        </div>
+        <AuthAlert
+          signInClicked={signInClicked}
+          signUpClicked={signUpClicked}
+        />
       )}
       {authContext.token && (
         <div className="bookings__calendar">

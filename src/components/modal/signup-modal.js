@@ -5,6 +5,7 @@ import axios from "axios";
 import validator from "validator";
 import { useInput } from "../../hooks/input-hook";
 import "./modal.css";
+import { ErrorAlert } from "../alerts/alerts";
 
 const SignUpModal = props => {
   const {
@@ -114,15 +115,7 @@ const SignUpModal = props => {
   return (
     <React.Fragment>
       <div className="modal">
-        {errors.length > 0 && (
-          <div className="modal__errors">
-            <ul className="modal__errors-list">
-              {errors.map(error => (
-                <li className="modal__errors-item">{error}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {errors.length > 0 && <ErrorAlert errors={errors} />}
         {userCreated && (
           <div className="modal__success">
             <h4>User created successfully!</h4>

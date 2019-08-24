@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import gql from "graphql-tag";
 import axios from "axios";
 import { useQuery } from "@apollo/react-hooks";
@@ -42,6 +42,10 @@ const EventDetails = props => {
           state
           city
           country
+        }
+        lineups{
+          name
+          image
         }
         pleaseNote
         ticketLimit
@@ -159,6 +163,7 @@ const EventDetails = props => {
           pleaseNote={data.eventDetails.pleaseNote}
           date={date}
           venue={location}
+          lineups={data.eventDetails.lineups}
           ticketLimit={data.eventDetails.ticketLimit}
           accessible={data.eventDetails.accessibility}
           show={showModal}
