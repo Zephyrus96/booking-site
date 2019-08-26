@@ -4,14 +4,16 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import { AuthContext } from "../../context/auth-context";
 import { ModalContext } from "../../context/modal-context";
-import "./bookings.scss";
+import EventDetailsModal from "../../components/modal/eventDetails-modal";
 import { AuthAlert } from "../../components/alerts/alerts";
+import Backdrop from "../../components/backdrop/backdrop";
+import "./bookings.scss";
 
 const BookingsPage = () => {
   const authContext = useContext(AuthContext);
   const modalContext = useContext(ModalContext);
   const [bookingList, setBookingList] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [eventClicked, setEventClicked] = useState(false);
 
   const signInClicked = () => {
     modalContext.setAuthClicked(true);
@@ -23,55 +25,55 @@ const BookingsPage = () => {
     modalContext.setSignUp(true);
   };
 
-  // const getBookings = () => {
-  //   let requestBody = {
-  //     query: `query{
-  //     bookings{
-  //       _id
-  //       event{
-  //         title
-  //         description
-  //       }
-  //       user{
-  //         email
-  //       }
-  //       createdAt
-  //     }
-  //   }`
-  //   };
+  const getBookings = async () => {
+    const res = await axios({
+      url: "http://localhost:5000/graphql",
+      method: "post",
+      data: {
+        query: `query {
+        bookings{
+        event{
+          _id
+          title
+          date
+          location
+        }
+      }
+    }`
+      },
+      withCredentials: true
+    });
 
-  //   const token = authContext.token;
-  //   setLoading(true);
+    const resData = res.data;
+    let bookings = [];
+    console.log(resData.data.bookings);
+    resData.data.bookings.map(booking => {
+      bookings = [
+        ...bookings,
+        {
+          _id: booking.event._id,
+          title: booking.event.title,
+          start: booking.event.date,
+          location: booking.event.location
+        }
+      ];
+    });
+    setBookingList(bookings);
+  };
 
-  //   fetch("http://localhost:5000/graphql", {
-  //     method: "POST",
-  //     body: JSON.stringify(requestBody),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: "Bearer " + token
-  //     }
-  //   })
-  //     .then(res => {
-  //       if (res.status !== 200 && res.status !== 201) {
-  //         throw new Error("Failed!");
-  //       }
-  //       return res.json();
-  //     })
-  //     .then(resData => {
-  //       setBookingList(resData.data.bookings);
-  //       setLoading(false);
-  //     })
-  //     .catch(err => {
-  //       throw err;
-  //     });
-  // };
+  const handleEventClick = event => {
+    setEventClicked(true);
+    console.log(event.event);
+  };
 
-  const getBookings = () => {};
+  const closeModal = () => {
+    setEventClicked(false);
+  };
 
   useEffect(() => {
     getBookings();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, authContext.token);
+  }, []);
 
   return (
     <div className="bookings">
@@ -83,9 +85,24 @@ const BookingsPage = () => {
       )}
       {authContext.token && (
         <div className="bookings__calendar">
-          <FullCalendar defaultView="dayGridMonth" plugins={[dayGridPlugin]} />
+          <FullCalendar
+            defaultView="dayGridMonth"
+            plugins={[dayGridPlugin]}
+            events={bookingList}
+            eventClick={handleEventClick}
+          />
         </div>
       )}
+      {eventClicked && (
+        <EventDetailsModal
+          events={[
+            { _id: "rsf1f13f", title: "Test 1" },
+            { _id: "Teasfgf12f", title: "Test 2" }
+          ]}
+          closeModal={closeModal}
+        />
+      )}
+      {eventClicked && <Backdrop show={true} clicked={closeModal} />}
     </div>
   );
 };

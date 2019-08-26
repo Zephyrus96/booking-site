@@ -7,7 +7,7 @@ const Dropdown = props => {
   const contextValue = useContext(DropdownContext);
 
   const dropdownEl = useRef(null);
-
+  const arrowEl = useRef(null);
   const [className, setClassName] = useState("dropdown-list");
 
   const dropdownFocus = () => {
@@ -46,7 +46,8 @@ const Dropdown = props => {
         tabIndex={0}
       >
         <div className="dropdown-container">
-          <label>{props.selectedOption}</label>
+          {props.sort && <label>Sort By: {props.selectedOption}</label>}
+          {!props.sort && <label>{props.selectedOption}</label>}
           <DropdownArrow className="dropdown-arrow" />
         </div>
         {className === "dropdown-list dropdown-list_active" && (
@@ -66,10 +67,12 @@ const Dropdown = props => {
                         (i === contextValue.activeGenreIndex
                           ? "item-active"
                           : "")
-                      : "list-options dropdown-sort" +
+                      : props.sort
+                      ? "list-options dropdown-sort" +
                         (i === contextValue.activeSortIndex
                           ? "item-active"
                           : "")
+                      : null
                   }
                   onClick={
                     props.event

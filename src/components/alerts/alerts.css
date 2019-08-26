@@ -1,6 +1,6 @@
 .error__container,
 .success__container {
-  width: 70%;
+  width: 20rem;
   padding: 0.5rem;
   margin: 1rem;
   display: -webkit-box;
@@ -73,5 +73,26 @@
 .auth-alert__user {
   font-size: 9rem;
   color: #363151;
+}
+
+.info-alert__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 28rem;
+  background-color: #d1ecf1;
+  color: #0c5460;
+  padding: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.info-alert__icon {
+  font-size: 2rem;
 }
 /*# sourceMappingURL=alerts.css.map */

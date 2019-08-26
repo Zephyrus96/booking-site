@@ -18,9 +18,7 @@ const EventsPage = () => {
 
   const eventsQuery = gql`
     query {
-      events(eventID: "${segmentID}", genreID: "${genreID}", sort: "${
-    contextValue.selectedSort
-  }") {
+      events(eventID: "${segmentID}", genreID: "${genreID}", sort: "${contextValue.selectedSort}") {
         _id
         title
         image{
@@ -65,20 +63,7 @@ const EventsPage = () => {
     return url;
   };
 
-  const setActiveTag = e => {
-    const tags = document.querySelector(".event__navbar").childNodes;
-
-    tags.forEach(tag => {
-      if (tag.classList.contains("active-option")) {
-        tag.classList.remove("active-option");
-      }
-    });
-
-    e.classList.add("active-option");
-  };
-
   const eventSelector = (eventName, e) => {
-    // setActiveTag(e.target.parentNode);
     switch (eventName) {
       case "All Events":
         contextValue.setSelectedEventType("All Events");
@@ -139,24 +124,6 @@ const EventsPage = () => {
 
   const { loading, data } = useQuery(eventsQuery);
 
-  if (loading)
-    return (
-      <div className="events__container">
-        <div className="event__navbar">
-          {eventOptions.map((el, i) => (
-            <NavLink
-              to="#"
-              className={i === contextValue.activeIndex ? "active-option" : ""}
-              onClick={eventSelector.bind(this, el)}
-            >
-              <h4>{el}</h4>
-            </NavLink>
-          ))}
-        </div>
-        <LoadingIcon />
-      </div>
-    );
-
   return (
     <div className="events__container">
       <div className="event__navbar">
@@ -170,36 +137,42 @@ const EventsPage = () => {
           </NavLink>
         ))}
       </div>
-      <div className="dropdown__container">
-        <div className="dropdown__group">
-          {contextValue.selectedEventType !== "All Events" && (
-            <Dropdown
-              genre
-              options={arrayOptions}
-              selectedOption={contextValue.selectedEventGenre}
-            />
-          )}
-        </div>
-        <div className="sort__dropdown">
-          <Dropdown
-            options={["Most Popular", "Date", "Name A-Z", "Name Z-A"]}
-            selectedOption={contextValue.selectedSort}
-          />
-        </div>
-      </div>
-      <ul className="events__list">
-        {!data.events && <h1>No Events!</h1>}
-        {data.events &&
-          data.events.map(event => (
-            <EventItem
-              key={event._id}
-              id={event._id}
-              title={event.title}
-              location={event.location}
-              imageURL={event.image.smallImage}
-            />
-          ))}
-      </ul>
+      {loading && <LoadingIcon />}
+      {!loading && (
+        <React.Fragment>
+          <div className="dropdown__container">
+            <div className="dropdown__group">
+              {contextValue.selectedEventType !== "All Events" && (
+                <Dropdown
+                  genre
+                  options={arrayOptions}
+                  selectedOption={contextValue.selectedEventGenre}
+                />
+              )}
+            </div>
+            <div className="sort__dropdown">
+              <Dropdown
+                sort
+                options={["Most Popular", "Date", "Name A-Z", "Name Z-A"]}
+                selectedOption={contextValue.selectedSort}
+              />
+            </div>
+          </div>
+          <ul className="events__list">
+            {!data.events && <h1>No Events!</h1>}
+            {data.events &&
+              data.events.map(event => (
+                <EventItem
+                  key={event._id}
+                  id={event._id}
+                  title={event.title}
+                  location={event.location}
+                  imageURL={event.image.smallImage}
+                />
+              ))}
+          </ul>
+        </React.Fragment>
+      )}
     </div>
   );
 };

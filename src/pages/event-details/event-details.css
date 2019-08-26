@@ -74,6 +74,7 @@
   padding: 1rem;
   margin: 2rem;
   border: 1px solid #363151;
+  border-radius: 3px;
   color: #f7f6ee;
   outline: none;
 }
@@ -81,5 +82,12 @@
 .btn__group-element:hover, .btn__group-element:active {
   background: #14121d;
   cursor: pointer;
+}
+
+.btn__group-element:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
 }
 /*# sourceMappingURL=event-details.css.map */

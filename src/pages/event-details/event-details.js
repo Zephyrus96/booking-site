@@ -1,21 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import gql from "graphql-tag";
 import axios from "axios";
 import { useQuery } from "@apollo/react-hooks";
 import EventInfoModal from "../../components/modal/eventInfo-modal";
 import LoadingIcon from "../../components/resources/loading";
+import { AuthContext } from "../../context/auth-context";
 import {
   IoLogoYoutube,
   IoLogoFacebook,
   IoLogoTwitter,
   IoLogoInstagram
 } from "react-icons/io";
+
+import { InfoAlert } from "../../components/alerts/alerts";
 import "./event-details.css";
+import Backdrop from "../../components/backdrop/backdrop";
 
 const EventDetails = props => {
   const id = props.location.pathname.split("/")[2];
+  const authContext = useContext(AuthContext);
 
   const [showModal, setShowModal] = useState(false);
+  const [eventStatus, setEventStatus] = useState({});
+  const [bookingLoad, setBookingLoad] = useState(false);
 
   const eventDetails = gql`
     query{
@@ -70,13 +77,35 @@ const EventDetails = props => {
     setShowModal(false);
   };
 
+  const checkBooked = async event => {
+    const res = await axios({
+      url: "http://localhost:5000/graphql",
+      method: "post",
+      data: {
+        query: `query{
+          searchBooking(id: "${id}"){
+            isBooked
+            error
+          }
+        }`
+      },
+      withCredentials: true
+    });
+
+    const resData = await res.data;
+
+    //contains an isBooked boolean and an error if it exists.
+    setEventStatus(resData.data.searchBooking);
+  };
+
   const bookEvent = async () => {
+    setBookingLoad(true);
     const res = await axios({
       url: "http://localhost:5000/graphql",
       method: "post",
       data: {
         query: `mutation {
-      bookEvent(id: "${id}", title:"${data.eventDetails.title}"){
+        bookEvent(id: "${id}", title:"${data.eventDetails.title}", date:"${data.eventDetails.date.startEventDate}", location:"${location}"){
         user{
           email
         }
@@ -85,11 +114,14 @@ const EventDetails = props => {
       },
       withCredentials: true
     });
-
-    const resData = await res.data;
-    const errors = await res.errors;
-    console.error(errors[0].message);
+    checkBooked();
+    setBookingLoad(false);
   };
+
+  useEffect(() => {
+    checkBooked();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const { loading, data } = useQuery(eventDetails);
 
@@ -115,7 +147,15 @@ const EventDetails = props => {
 
   return (
     <React.Fragment>
+      {bookingLoad && <LoadingIcon />}
+      {bookingLoad && <Backdrop show={true} />}
       <div className="event-details__container">
+        {!authContext.token && (
+          <InfoAlert message={"You need to be logged in to book an event"} />
+        )}
+        {!eventStatus.error && eventStatus.isBooked && (
+          <InfoAlert message={"You have already booked this event"} />
+        )}
         <div className="event-details__main">
           <img src={data.eventDetails.image.largeImage} alt="event" />
           <div className="event-details__header">
@@ -152,9 +192,16 @@ const EventDetails = props => {
           <button className="btn__group-element" onClick={showInfoModal}>
             More Info
           </button>
-          <button className="btn__group-element" onClick={bookEvent}>
-            Book Event
-          </button>
+          {(eventStatus.error || eventStatus.isBooked) && (
+            <button className="btn__group-element" disabled>
+              Book Event
+            </button>
+          )}
+          {!eventStatus.error && !eventStatus.isBooked && (
+            <button className="btn__group-element" onClick={bookEvent}>
+              Book Event
+            </button>
+          )}
         </div>
       </div>
       {showModal && (

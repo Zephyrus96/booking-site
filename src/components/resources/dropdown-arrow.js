@@ -3,7 +3,7 @@ import React from "react";
 const DropdownArrow = () => {
   return (
     <svg
-      className="DropDownGroupstyles__StyledChevron-sc-1b4fjl8-4 eVPDVK"
+      className="dropdown-arrow DropDownGroupstyles__StyledChevron-sc-1b4fjl8-4 eVPDVK"
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="16"

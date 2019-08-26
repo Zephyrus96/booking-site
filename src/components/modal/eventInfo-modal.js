@@ -38,19 +38,21 @@ const EventInfoModal = props => {
             </div>
           )}
           <hr className="horizontal-rule" />
-          <div className="event-info__lineup">
-            <h3>Lineup</h3>
-            <div className="event-info__performers">
-              {props.lineups.map((lineup, i) => {
-                return (
-                  <div key={i}>
-                    <img src={lineup.image} alt="lineup" />
-                    <h4>{lineup.name}</h4>
-                  </div>
-                );
-              })}
+          {props.lineups.length > 0 && (
+            <div className="event-info__lineup">
+              <h3>Lineup</h3>
+              <div className="event-info__performers">
+                {props.lineups.map((lineup, i) => {
+                  return (
+                    <div key={i}>
+                      <img src={lineup.image} alt="lineup" />
+                      <h4>{lineup.name}</h4>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
           {props.ticketLimit && (
             <div className="event-info__ticket">
               <h3>Ticket Limit</h3>

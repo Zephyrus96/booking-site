@@ -2,7 +2,7 @@
 
 .error__container,
 .success__container {
-  width: 70%;
+  width: 20rem;
   padding: 0.5rem;
   margin: 1rem;
   display: flex;
@@ -54,4 +54,20 @@
 .auth-alert__user {
   font-size: 9rem;
   color: $mainDarkColor;
+}
+
+.info-alert__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 28rem;
+  background-color: #d1ecf1;
+  color: #0c5460;
+  padding: 0.2rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.info-alert__icon {
+  font-size: 2rem;
 }

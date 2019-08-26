@@ -1,5 +1,5 @@
 import React from "react";
-import { FaExclamationTriangle } from "react-icons/fa";
+import { FaExclamationTriangle, FaExclamationCircle } from "react-icons/fa";
 
 import "./alerts.css";
 
@@ -41,6 +41,15 @@ export const AuthAlert = props => {
           <h3>Sign Up</h3>
         </button>
       </h3>
+    </div>
+  );
+};
+
+export const InfoAlert = props => {
+  return (
+    <div className="info-alert__container">
+      <FaExclamationCircle className="info-alert__icon" />
+      <h3>{props.message}</h3>
     </div>
   );
 };

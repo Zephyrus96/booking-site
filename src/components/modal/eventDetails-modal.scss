@@ -1,0 +1,65 @@
+@import "../resources/variables";
+
+.event-modal__container {
+  width: 70%;
+  max-width: 40rem;
+  background-color: $mainLightColor;
+  color: $mainDarkColor;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  border-radius: 5px;
+  h2 {
+    margin-left: 0.5rem;
+    padding: 0;
+    text-decoration: underline;
+  }
+}
+
+.event-modal__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-modal__list-item {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.event-delete__icon {
+  font-size: 2rem;
+  color: $mainDarkColor;
+  &:hover {
+    animation: shakeBin 0.4s 2 alternate;
+    cursor: pointer;
+  }
+}
+
+.event-close__icon {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  z-index: 10000;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@keyframes shakeBin {
+  50% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
