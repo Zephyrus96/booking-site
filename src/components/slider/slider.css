@@ -55,4 +55,9 @@
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
 }
+
+.slick-arrow::before,
+.slick-arrow::after {
+  color: #363151;
+}
 /*# sourceMappingURL=slider.css.map */

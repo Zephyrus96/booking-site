@@ -52,6 +52,25 @@
   list-style: none;
 }
 
+.load-more__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.load-more__btn button {
+  width: 20rem;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.load-more__btn button:hover {
+  cursor: pointer;
+}
+
 .dropdown__container {
   display: -webkit-box;
   display: -ms-flexbox;

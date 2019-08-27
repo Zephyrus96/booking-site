@@ -1,5 +1,6 @@
 .error__container,
-.success__container {
+.success__container,
+.success-animated__container {
   width: 20rem;
   padding: 0.5rem;
   margin: 1rem;
@@ -23,9 +24,13 @@
   color: #721c24;
 }
 
-.success__container {
+.success__container,
+.success-animated__container {
   background-color: #d4edda;
   color: #155724;
+  padding: 0;
+  border-radius: 5px;
+  height: 3rem;
 }
 
 .auth-alert__container {
@@ -79,12 +84,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 28rem;
+  width: 22rem;
   background-color: #d1ecf1;
   color: #0c5460;
   padding: 0.2rem;
@@ -94,5 +97,31 @@
 
 .info-alert__icon {
   font-size: 2rem;
+  margin: auto 1rem;
+}
+
+.success-animated__container {
+  width: 25rem;
+  margin: 2rem auto;
+  -webkit-animation: longAlert 5s 1 forwards;
+          animation: longAlert 5s 1 forwards;
+}
+
+@-webkit-keyframes longAlert {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes longAlert {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=alerts.css.map */

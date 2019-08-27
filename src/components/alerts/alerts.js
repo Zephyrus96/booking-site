@@ -53,3 +53,11 @@ export const InfoAlert = props => {
     </div>
   );
 };
+
+export const SuccessAnimatedAlert = props => {
+  return (
+    <div className="success-animated__container">
+      <h3>{props.message}</h3>
+    </div>
+  );
+};

@@ -17,14 +17,19 @@ const EventsPage = () => {
   const eventOptions = ["All Events", "Concerts", "Sports", "Arts & Theater"];
 
   const eventsQuery = gql`
-    query {
-      events(eventID: "${segmentID}", genreID: "${genreID}", sort: "${contextValue.selectedSort}") {
+    query Events(
+      $eventID: String
+      $genreID: String
+      $sort: String
+      $page: Int!
+    ) {
+      events(eventID: $eventID, genreID: $genreID, sort: $sort, page: $page) {
         _id
         title
-        image{
+        image {
           smallImage
         }
-        location{
+        location {
           state
           city
           country
@@ -103,6 +108,7 @@ const EventsPage = () => {
     }
   };
 
+  //Reset dropdowns whem event type changes.
   useEffect(() => {
     contextValue.setSelectedEventGenre(arrayOptions[0]);
     contextValue.setActiveGenreIndex(0);
@@ -112,6 +118,7 @@ const EventsPage = () => {
     // eslint-disable-next-line
   }, [contextValue.selectedEventType]);
 
+  //Refetch events when genre is changed.
   useEffect(() => {
     selectedGenre();
     // eslint-disable-next-line
@@ -122,13 +129,38 @@ const EventsPage = () => {
     contextValue.options.map(option => arrayOptions.push(option.name));
   }
 
-  const { loading, data } = useQuery(eventsQuery);
+  //API call to get events.
+  const { loading, data, fetchMore } = useQuery(eventsQuery, {
+    variables: {
+      eventID: segmentID,
+      genreID,
+      sort: contextValue.selectedSort,
+      page: 0
+    }
+  });
+
+  const loadMore = () => {
+    fetchMore({
+      variables: {
+        page: data.events.length / 15
+      },
+      updateQuery: (pv, { fetchMoreResult }) => {
+        if (!fetchMoreResult) {
+          return pv;
+        }
+        return {
+          events: [...pv.events, ...fetchMoreResult.events]
+        };
+      }
+    });
+  };
 
   return (
     <div className="events__container">
       <div className="event__navbar">
         {eventOptions.map((el, i) => (
           <NavLink
+            key={i}
             to="#"
             className={i === contextValue.activeIndex ? "active-option" : ""}
             onClick={eventSelector.bind(this, el)}
@@ -170,6 +202,11 @@ const EventsPage = () => {
                   imageURL={event.image.smallImage}
                 />
               ))}
+            <div className="load-more__btn">
+              <button className="details__btn" onClick={loadMore}>
+                Load More
+              </button>
+            </div>
           </ul>
         </React.Fragment>
       )}

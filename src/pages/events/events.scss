@@ -38,6 +38,19 @@
   list-style: none;
 }
 
+.load-more__btn {
+  display: flex;
+  justify-content: center;
+  button {
+    width: 20rem;
+    height: 3rem;
+    font-size: 1rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
 .dropdown__container {
   display: flex;
   justify-content: space-between;

@@ -1,7 +1,22 @@
 @import "~@fullcalendar/core/main.css";
 @import "~@fullcalendar/daygrid/main.css";
+@import "../../components//resources/variables";
 
 .bookings__calendar {
   width: 90%;
+  max-height: 700px;
+  max-width: 850px;
   margin: auto;
+  h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+.fc-day-grid-event {
+  background-color: $mainDarkColor;
+  border-color: $mainDarkColor;
+  &:hover {
+    cursor: pointer;
+  }
 }

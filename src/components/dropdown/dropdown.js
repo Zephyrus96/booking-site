@@ -7,7 +7,6 @@ const Dropdown = props => {
   const contextValue = useContext(DropdownContext);
 
   const dropdownEl = useRef(null);
-  const arrowEl = useRef(null);
   const [className, setClassName] = useState("dropdown-list");
 
   const dropdownFocus = () => {

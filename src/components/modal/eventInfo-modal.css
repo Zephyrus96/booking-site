@@ -44,10 +44,10 @@
 }
 
 .event-info__header .cancel__modal {
-  vertical-align: middle;
-  text-align: center;
   font-size: 1.5rem;
-  margin-left: auto;
+  margin-right: 1rem;
+  -webkit-transform: translateY(30%);
+          transform: translateY(30%);
 }
 
 .event-info__date,

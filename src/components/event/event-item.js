@@ -6,7 +6,7 @@ import "./event-item.css";
 const EventItem = props => {
   const url = `/events/${props.id}`;
   return (
-    <li className="event__list-item">
+    <li key={props.id} className="event__list-item">
       <div className="event__item">
         <div className="event__image">
           <img src={props.imageURL} alt="eventImage" />

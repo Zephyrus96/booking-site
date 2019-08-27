@@ -154,14 +154,14 @@ const EventDetails = props => {
           <InfoAlert message={"You need to be logged in to book an event"} />
         )}
         {!eventStatus.error && eventStatus.isBooked && (
-          <InfoAlert message={"You have already booked this event"} />
+          <InfoAlert message={"You have booked this event."} />
         )}
+        {!date && <InfoAlert message={"Tickets aren't available yet"} />}
         <div className="event-details__main">
           <img src={data.eventDetails.image.largeImage} alt="event" />
           <div className="event-details__header">
             <h1>{data.eventDetails.title}</h1>
             <h3>{date}</h3>
-
             <h3>{location}</h3>
 
             <div className="social-media__icons">
@@ -192,7 +192,7 @@ const EventDetails = props => {
           <button className="btn__group-element" onClick={showInfoModal}>
             More Info
           </button>
-          {(eventStatus.error || eventStatus.isBooked) && (
+          {(eventStatus.error || eventStatus.isBooked || !date) && (
             <button className="btn__group-element" disabled>
               Book Event
             </button>

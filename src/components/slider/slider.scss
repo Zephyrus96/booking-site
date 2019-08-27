@@ -1,5 +1,4 @@
-$primaryColor: #363151;
-$bgColor: #f7f6ee;
+@import "../resources/variables";
 
 .slick-slider {
   width: 90%;
@@ -36,7 +35,7 @@ $bgColor: #f7f6ee;
   opacity: 0;
   transition: all 200ms ease-in-out;
   h1 {
-    color: $bgColor;
+    color: $mainLightColor;
   }
 }
 
@@ -45,4 +44,9 @@ $bgColor: #f7f6ee;
   height: 100%;
   width: 100%;
   transition: all 200ms ease-in-out;
+}
+
+.slick-arrow::before,
+.slick-arrow::after {
+  color: $mainDarkColor;
 }

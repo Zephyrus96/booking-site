@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ApolloClient from "apollo-client";
 import { ApolloProvider } from "@apollo/react-hooks";
@@ -29,19 +29,6 @@ function App() {
     link,
     cache
   });
-
-  // const [token, setToken] = useState(null);
-  // const [userID, setUserID] = useState(null);
-
-  // const login = (userID, tokenExpiration) => {
-  //   setToken(cookies);
-  //   setUserID(userID);
-  // };
-
-  // const logout = () => {
-  //   setToken(null);
-  //   setUserID(null);
-  // };
 
   return (
     <div className="App">
