@@ -18,15 +18,27 @@
 }
 
 .menu-button {
-  background: none;
-  outline: none;
-  border-radius: 100%;
-  border: 1.5px solid #363151;
-  color: #363151;
-  padding: 1.5rem;
-  cursor: pointer;
-  margin: 1rem;
   display: none;
+  margin: 1rem;
+}
+
+.menu-button:hover {
+  cursor: pointer;
+}
+
+.menu-button span:nth-child(1),
+.menu-button span:nth-child(3) {
+  display: block;
+  width: 20px;
+  height: 5px;
+  border-top: 3px solid #363151;
+}
+
+.menu-button span:nth-child(2) {
+  display: block;
+  width: 30px;
+  height: 5px;
+  border-top: 3px solid #363151;
 }
 
 .landing__auth button {

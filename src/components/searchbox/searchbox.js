@@ -16,6 +16,7 @@ const SearchBox = () => {
   const searchKeyword = () => {
     clearTimeout(timer);
     if (searchEl.current.value.length > 1) {
+      setLoadingResults(true);
       resultEl.current.style.display = "flex";
       setTimer(
         setTimeout(() => {
@@ -30,7 +31,7 @@ const SearchBox = () => {
 
   const searchEvents = async () => {
     console.log(searchEl.current.value);
-    setLoadingResults(true);
+
     const url =
       "https://app.ticketmaster.com/discovery/v2/events.json?size=10&keyword=" +
       searchEl.current.value +
@@ -69,7 +70,7 @@ const SearchBox = () => {
       </div>
       <div ref={resultEl} className="search__results">
         {loadingResults && <ResultLoading />}
-        {!loadingResults && searchResults.length && (
+        {!loadingResults && searchResults.length > 0 && (
           <ul>
             {searchResults.map((result, i) => (
               <li key={result.id} onClick={handleClick}>

@@ -3,18 +3,6 @@
   width: 100vw;
 }
 
-.menu-button {
-  background: none;
-  outline: none;
-  border-radius: 100%;
-  border: 1.5px solid #363151;
-  color: #363151;
-  padding: 1.5rem;
-  cursor: pointer;
-  margin: 1rem;
-  display: none;
-}
-
 .trending__slider {
   margin-top: 4rem;
 }

@@ -63,9 +63,11 @@ const Topbar = props => {
           src={require("../../../images/3a882bd9-f5f4-4761-a100-5c873608216b_200x200.png")}
           alt="logo"
         />
-        <button className="menu-button" onClick={menuClicked}>
-          Menu
-        </button>
+        <div className="menu-button" onClick={menuClicked}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
       <SearchBox />
       {!authContext.token && (

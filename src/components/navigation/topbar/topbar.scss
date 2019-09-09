@@ -16,15 +16,24 @@
 }
 
 .menu-button {
-  background: none;
-  outline: none;
-  border-radius: 100%;
-  border: 1.5px solid $mainDarkColor;
-  color: $mainDarkColor;
-  padding: 1.5rem;
-  cursor: pointer;
-  margin: 1rem;
   display: none;
+  margin: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
+  span:nth-child(1),
+  span:nth-child(3) {
+    display: block;
+    width: 20px;
+    height: 5px;
+    border-top: 3px solid $mainDarkColor;
+  }
+  span:nth-child(2) {
+    display: block;
+    width: 30px;
+    height: 5px;
+    border-top: 3px solid $mainDarkColor;
+  }
 }
 
 .landing__auth {

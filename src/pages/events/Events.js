@@ -170,46 +170,51 @@ const EventsPage = () => {
         ))}
       </div>
       {loading && <LoadingIcon />}
-      {!loading && (
-        <React.Fragment>
-          <div className="dropdown__container">
-            <div className="dropdown__group">
-              {contextValue.selectedEventType !== "All Events" && (
+
+      {/* Makes sure genres are loaded before displaying the events. */}
+      {!loading &&
+        (contextValue.selectedEventType !== "All Events"
+          ? contextValue.options.length > 0
+          : contextValue.options.length >= 0) && (
+          <React.Fragment>
+            <div className="dropdown__container">
+              <div className="dropdown__group">
+                {contextValue.selectedEventType !== "All Events" && (
+                  <Dropdown
+                    genre
+                    options={arrayOptions}
+                    selectedOption={contextValue.selectedEventGenre}
+                  />
+                )}
+              </div>
+              <div className="sort__dropdown">
                 <Dropdown
-                  genre
-                  options={arrayOptions}
-                  selectedOption={contextValue.selectedEventGenre}
+                  sort
+                  options={["Most Popular", "Date", "Name A-Z", "Name Z-A"]}
+                  selectedOption={contextValue.selectedSort}
                 />
-              )}
+              </div>
             </div>
-            <div className="sort__dropdown">
-              <Dropdown
-                sort
-                options={["Most Popular", "Date", "Name A-Z", "Name Z-A"]}
-                selectedOption={contextValue.selectedSort}
-              />
-            </div>
-          </div>
-          <ul className="events__list">
-            {!data.events && <h1>No Events!</h1>}
-            {data.events &&
-              data.events.map(event => (
-                <EventItem
-                  key={event._id}
-                  id={event._id}
-                  title={event.title}
-                  location={event.location}
-                  imageURL={event.image.smallImage}
-                />
-              ))}
-            <div className="load-more__btn">
-              <button className="details__btn" onClick={loadMore}>
-                Load More
-              </button>
-            </div>
-          </ul>
-        </React.Fragment>
-      )}
+            <ul className="events__list">
+              {!data.events && <h1>No Events!</h1>}
+              {data.events &&
+                data.events.map(event => (
+                  <EventItem
+                    key={event._id}
+                    id={event._id}
+                    title={event.title}
+                    location={event.location}
+                    imageURL={event.image.smallImage}
+                  />
+                ))}
+              <div className="load-more__btn">
+                <button className="details__btn" onClick={loadMore}>
+                  Load More
+                </button>
+              </div>
+            </ul>
+          </React.Fragment>
+        )}
     </div>
   );
 };

@@ -9,13 +9,19 @@ const Dropdown = props => {
   const dropdownEl = useRef(null);
   const [className, setClassName] = useState("dropdown-list");
 
-  const dropdownFocus = () => {
+  const dropdownFocus = e => {
     setClassName("dropdown-list dropdown-list_active");
   };
 
   const dropdownBlur = () => {
     setClassName("dropdown-list");
   };
+
+  // const checkFocus = () => {
+  //   dropdownEl.current.className.includes("dropdown-list_active")
+  //     ? setClassName("dropdown-list")
+  //     : setClassName("dropdown-list dropdown-list_active ");
+  // };
 
   const eventActive = (index, option) => {
     contextValue.setActiveEventIndex(index);
