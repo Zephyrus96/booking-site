@@ -20,6 +20,11 @@
 .env.test.local
 .env.production.local
 
+<<<<<<< HEAD
+=======
+/src/images
+
+>>>>>>> 06a27f5d4e7abeb7e73b3cff84dfa461a13e574a
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
