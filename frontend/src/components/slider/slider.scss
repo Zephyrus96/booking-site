@@ -1,0 +1,52 @@
+@import "../resources/variables";
+
+.slick-slider {
+  width: 90%;
+  margin: 0 auto;
+}
+.slick-track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.slider__item {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &:hover {
+    cursor: pointer;
+  }
+  &:hover .item-backdrop,
+  &:hover .item__title {
+    opacity: 1;
+  }
+}
+
+.item__title {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 600;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  h1 {
+    color: $mainLightColor;
+  }
+}
+
+.item-backdrop {
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 200ms ease-in-out;
+}
+
+.slick-arrow::before,
+.slick-arrow::after {
+  color: $mainDarkColor;
+}

@@ -1,0 +1,97 @@
+.event-modal__container {
+  width: 70%;
+  max-width: 40rem;
+  background-color: #f7f6ee;
+  color: #363151;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 10000;
+  border-radius: 5px;
+}
+
+.event-modal__container h2 {
+  margin-left: 0.5rem;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.event-modal__list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.event-modal__list-item {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+
+.event-delete__icon {
+  font-size: 2rem;
+  color: #363151;
+}
+
+.event-delete__icon:hover {
+  -webkit-animation: shakeBin 0.4s 2 alternate;
+          animation: shakeBin 0.4s 2 alternate;
+  cursor: pointer;
+}
+
+.event-close__icon {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  z-index: 10000;
+}
+
+.event-close__icon:hover {
+  cursor: pointer;
+}
+
+@-webkit-keyframes shakeBin {
+  50% {
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+  }
+  100% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+}
+
+@keyframes shakeBin {
+  50% {
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+  }
+  100% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+}
+/*# sourceMappingURL=eventDetails-modal.css.map */

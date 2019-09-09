@@ -1,0 +1,63 @@
+@import "../resources/variables";
+
+.event-info__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 40rem;
+  max-height: 40rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  z-index: 1000;
+}
+
+.event-info__details {
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.event-info__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $mainDarkColor;
+  color: $mainLightColor;
+  h3 {
+    font-size: 1.5rem;
+  }
+  .cancel__modal {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    transform: translateY(30%);
+  }
+}
+
+.event-info__date,
+.event-info__location {
+  display: flex;
+  align-items: center;
+  h3 {
+    margin-right: 0.8rem;
+  }
+}
+
+.event-info__performers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.event-info__icon {
+  font-size: 1.4rem;
+  margin-right: 1rem;
+}

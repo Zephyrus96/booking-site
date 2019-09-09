@@ -1,0 +1,75 @@
+.landing__topbar {
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.site__logo img {
+  width: 100px;
+  height: 100px;
+  padding-left: 1.2rem;
+}
+
+.menu-button {
+  display: none;
+  margin: 1rem;
+}
+
+.menu-button:hover {
+  cursor: pointer;
+}
+
+.menu-button span:nth-child(1),
+.menu-button span:nth-child(3) {
+  display: block;
+  width: 20px;
+  height: 5px;
+  border-top: 3px solid #363151;
+}
+
+.menu-button span:nth-child(2) {
+  display: block;
+  width: 30px;
+  height: 5px;
+  border-top: 3px solid #363151;
+}
+
+.landing__auth button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #363151;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.landing__auth button:hover, .landing__auth button:active {
+  color: #5dd2d8;
+}
+
+.loading-icon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 10000;
+}
+
+@media only screen and (max-width: 785px) {
+  .menu-button {
+    display: block;
+  }
+  .site__image {
+    display: none;
+  }
+}
+/*# sourceMappingURL=topbar.css.map */
