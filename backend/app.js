@@ -52,6 +52,18 @@ app.use("/graphql", bodyParser.json(), cookieParser(), (req, res) => {
   })(req, res);
 });
 
+
+// Only run when in production
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static('../frontend/build'));
+
+  app.get('*', (req,res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"))
+  })
+}
+
+const PORT = process.env.PORT || 5000;
+
 mongoose.set("useNewUrlParser", true);
 
 mongoose
@@ -63,7 +75,7 @@ mongoose
     }?retryWrites=true&w=majority`
   )
   .then(() => {
-    app.listen(5000);
+    app.listen(PORT);
   })
   .catch(err => {
     console.log(err);
