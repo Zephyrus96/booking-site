@@ -178,6 +178,13 @@ const EventsPage = () => {
           : contextValue.options.length >= 0) && (
           <React.Fragment>
             <div className="dropdown__container">
+              <div className="event__dropdown">
+                <Dropdown
+                  event
+                  options={["All Events", "Concerts", "Sports", "Arts & Theater"]}
+                  selectedOption={contextValue.selectedEventType}
+                />
+              </div>
               <div className="dropdown__group">
                 {contextValue.selectedEventType !== "All Events" && (
                   <Dropdown
@@ -208,7 +215,7 @@ const EventsPage = () => {
                   />
                 ))}
               {data.events && <div className="load-more__btn">
-                <button className="details__btn" onClick={loadMore}>
+                <button className="default__btn" onClick={loadMore}>
                   Load More
                 </button>
               </div>}

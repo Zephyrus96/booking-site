@@ -7,12 +7,11 @@ $btnColor: #363151;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2rem auto;
-
   width: 100%;
   max-width: 70rem;
   border-bottom: 1px solid $borderColor;
   padding: 1rem;
+  margin: 0 auto;
 }
 
 .event__item {
@@ -21,8 +20,15 @@ $btnColor: #363151;
   align-items: center;
 }
 
+.item__link{
+  text-decoration: none;
+  h3{
+    color: $mainDarkColor;
+  }
+}
+
 .event__image {
-  margin: 0 2rem;
+  margin-right: 2rem;
 }
 
 .event__details {
@@ -48,4 +54,44 @@ $btnColor: #363151;
   font-size: 0.9rem;
   font-weight: bold;
   color: $greyColor;
+}
+
+@include xsm{
+  .event__item{
+    font-size: 1rem;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .details__btn{
+    display: none;
+  }
+}
+
+@include sm{
+  .event__list-item {
+    width: 100%;
+  }
+  .event__item{
+    font-size: 0.8rem;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .details__btn{
+    display: none;
+  }
+}
+
+@include md{
+  .event__item{
+    font-size: 1rem;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .details__btn{
+    display: none;
+  }
+
 }

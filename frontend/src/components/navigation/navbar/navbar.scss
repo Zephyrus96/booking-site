@@ -1,4 +1,4 @@
-$itemColor: #363151;
+@import "../../resources/variables";
 
 .navbar__container {
   width: 90%;
@@ -51,7 +51,7 @@ $itemColor: #363151;
   border: 1px solid #eaedee;
 }
 
-@media only screen and (max-width: 785px) {
+@media screen and (max-width: 785px){
   .navbar__container {
     display: none;
   }

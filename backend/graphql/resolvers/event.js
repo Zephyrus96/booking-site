@@ -47,7 +47,7 @@ const checkSales = event => {
   const endSalesDate = event.sales.public.endDateTime;
 
   //Get event date.
-  const startEventDate = event.dates.start.dateTime;
+  const startEventDate = event.dates.start.dateTime ? event.dates.start.dateTime : event.dates.start.localDate;
 
   return {
     startSalesDate,

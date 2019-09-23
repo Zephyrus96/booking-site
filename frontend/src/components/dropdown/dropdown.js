@@ -24,6 +24,7 @@ const Dropdown = props => {
   // };
 
   const eventActive = (index, option) => {
+    console.log(index);
     contextValue.setActiveEventIndex(index);
     contextValue.setSelectedEventType(option);
     dropdownEl.current.blur();

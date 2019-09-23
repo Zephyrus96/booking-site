@@ -42,29 +42,25 @@ function App() {
                     <Switch>
                       <Route path="/" exact>
                         <Topbar />
-                        <Navbar />
-                        <Sidebar />
+                        <Navbar />   
                         <IndexPage />
                       </Route>
 
                       <Route path="/events" exact>
                         <Topbar />
                         <Navbar />
-                        <Sidebar />
                         <EventsPage />
                       </Route>
 
                       <Route path="/bookings" exact>
                         <Topbar />
                         <Navbar />
-                        <Sidebar />
                         <BookingsPage />
                       </Route>
 
                       <Route path="/events/:id" exact>
                         <Topbar />
                         <Navbar />
-                        <Sidebar />
                         <Route path="/" component={EventDetails} />
                       </Route>
                     </Switch>

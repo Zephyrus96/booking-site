@@ -9,6 +9,7 @@ import SignInModal from "../../../components/modal/signin-modal";
 import { withRouter } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import "./topbar.css";
+import Sidebar from "../sidebar/sidebar";
 
 const Topbar = props => {
   const authContext = useContext(AuthContext);
@@ -89,6 +90,7 @@ const Topbar = props => {
         </div>
       )}
       {modalContext.authClicked && modal}
+      {modalContext.menuOpened && <Sidebar/>}
     </div>
   );
 };

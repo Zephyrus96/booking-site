@@ -1,6 +1,7 @@
 @import "../../components/resources/variables";
 
 .event-details__container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,5 +68,11 @@
     background-color: #cccccc;
     color: #666666;
     cursor: default;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .event-details__main {
+    flex-direction: column;
   }
 }

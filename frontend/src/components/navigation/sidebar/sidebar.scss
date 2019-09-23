@@ -3,14 +3,14 @@ $bgImage: url("../../../images/concert-lights-music-1370545.jpg");
 
 .menu-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .sidebar-container {
   width: 45%;
-  height: 100vh;
+  height: 100%;
   background: $mainDarkColor;
   position: fixed;
   top: 0;

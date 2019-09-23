@@ -31,25 +31,27 @@ const Sidebar = props => {
   useEffect(() => {
     timelineCallback();
   }, []);
+  
+  const closeMenu = () => {
+    modalContext.setMenuOpened(false);
+  };
+
 
   const listItems = (
     <React.Fragment>
-      <li className="sidebar__list-item list-item-1">
+      <li className="sidebar__list-item list-item-1" onClick={closeMenu}>
         <NavLink to="/">HOME</NavLink>
       </li>
-      <li className="sidebar__list-item list-item-2">
+      <li className="sidebar__list-item list-item-2" onClick={closeMenu}>
         <NavLink to="/events">EVENTS</NavLink>
       </li>
-      <li className="sidebar__list-item list-item-3">
+      <li className="sidebar__list-item list-item-3" onClick={closeMenu}>
         <NavLink to="/bookings">BOOKINGS</NavLink>
       </li>
     </React.Fragment>
   );
 
-  const closeMenu = () => {
-    modalContext.setMenuOpened(false);
-  };
-
+ 
   return (
     <React.Fragment>
       {modalContext.menuOpened && (
