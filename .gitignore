@@ -3,7 +3,7 @@
 # dependencies
 /frontend/node_modules
 /node_modules
-# /nodemon.json
+/nodemon.json
 /.pnp
 .pnp.js
 

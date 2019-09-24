@@ -9,7 +9,6 @@
     "server": "nodemon app.js",
     "client": "yarn --cwd ./frontend start",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "build-client": "yarn --cwd ./frontend run build",
     "heroku-postbuild": "yarn --cwd ./frontend install && yarn --cwd ./frontend run build"
   },
   "author": "",
