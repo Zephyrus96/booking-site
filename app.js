@@ -31,7 +31,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://book-it-react-node.herokuapp.com"],
     allowedHeaders: ["Cookie", "Content-Type"],
     exposedHeaders: ["Cookie"],
     credentials: true
