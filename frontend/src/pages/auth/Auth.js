@@ -30,36 +30,8 @@ const AuthPage = () => {
       }
     }`;
 
-    //Send request to the backend api.
-
-    // fetch("http://localhost:5000/graphql", {
-    //   method: "POST",
-    //   body: JSON.stringify(requestBody),
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   }
-    // })
-    //   .then(res => {
-    //     if (res.status !== 200 && res.status !== 201) {
-    //       throw new Error("Failed!");
-    //     }
-    //     return res.json();
-    //   })
-    //   .then(resData => {
-    //     if (resData.data.login.token) {
-    //       authContext.login(
-    //         resData.data.login.token,
-    //         resData.data.login.userID,
-    //         resData.data.login.tokenExpiration
-    //       );
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
-
     axios
-      .post("http://localhost:5000/graphql", loginQuery)
+      .post("https://book-it-react-node.herokuapp.com/graphql", loginQuery)
       .then(result => console.log(result));
   };
 
