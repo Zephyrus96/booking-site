@@ -101,7 +101,7 @@ const EventDetails = props => {
   const bookEvent = async () => {
     setBookingLoad(true);
     const res = await axios({
-      url: "http://localhost:5000/graphql",
+      url: "https://book-it-react-node.herokuapp.com/graphql",
       method: "post",
       data: {
         query: `mutation {

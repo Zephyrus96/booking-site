@@ -85,7 +85,7 @@ const SignUpModal = props => {
     const valid = validateForm();
     if (valid) {
       axios
-        .post("http://localhost:5000/graphql", {
+        .post("https://book-it-react-node.herokuapp.com/graphql", {
           query: `mutation{
           createUser(userInput: {firstName: "${firstName}", lastName: "${lastName}", email: "${email}", password: "${password}"}){
             _id
