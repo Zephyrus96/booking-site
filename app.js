@@ -7,6 +7,7 @@ const cors = require("cors");
 const graphQLResolvers = require("./graphql/resolvers/index");
 const cookieParser = require("cookie-parser");
 const isAuth = require("./middleware/is-auth");
+var path = require('path');
 
 const app = express();
 
@@ -36,6 +37,15 @@ app.use(
     credentials: true
   })
 );
+
+
+// app.get('http://localhost:3000/events', function(req, res) {
+//   res.sendFile(path.join(__dirname, './frontend/public/index.html'), function(err) {
+//     if (err) {
+//       res.status(500).send(err)
+//     }
+//   })
+// })
 
 //graphQLHttp is a middleware that has schema and rootValue as properties.
 //schema takes buildSchema imported from GraphQL and has a string literal as an arg.

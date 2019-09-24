@@ -61,7 +61,7 @@ function App() {
                       <Route path="/events/:id" exact>
                         <Topbar />
                         <Navbar />
-                        <Route path="/" component={EventDetails} />
+                        <Route component={EventDetails} />
                       </Route>
                     </Switch>
                   </main>
