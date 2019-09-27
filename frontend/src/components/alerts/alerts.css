@@ -135,4 +135,16 @@
     opacity: 0;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .auth-alert__container {
+    border: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    text-align: center;
+  }
+  .success-animated__container, .info-alert__container, .error__container {
+    width: 75%;
+  }
+}
 /*# sourceMappingURL=alerts.css.map */

@@ -17,8 +17,8 @@ $dropdownSmallWidth: 10rem;
 }
 
 .dropdown-list_active {
-  box-shadow: 0px 0px 10px 0.2px $mainDarkColor;
   position: relative;
+  box-shadow: 0px 0px 10px 0.2px $mainDarkColor;
   z-index: 2;
   .dropdown-arrow {
     transform: rotate(180deg);
@@ -71,11 +71,5 @@ $dropdownSmallWidth: 10rem;
   .item-active {
     background-color: $mainBlueColor;
     color: $mainLightColor;
-  }
-}
-
-.dropdown-sort {
-  &:hover {
-    border: 2px solid $mainDarkColor;
   }
 }

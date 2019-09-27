@@ -17,12 +17,6 @@ const Dropdown = props => {
     setClassName("dropdown-list");
   };
 
-  // const checkFocus = () => {
-  //   dropdownEl.current.className.includes("dropdown-list_active")
-  //     ? setClassName("dropdown-list")
-  //     : setClassName("dropdown-list dropdown-list_active ");
-  // };
-
   const eventActive = (index, option) => {
     console.log(index);
     contextValue.setActiveEventIndex(index);

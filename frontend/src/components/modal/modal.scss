@@ -96,13 +96,21 @@
   }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .modal {
     width: 30rem;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
   }
+}
+
+@media screen and (max-width: 767px) {
+  .modal {
+    animation: none;
+    top:2%;
+  }
+}
 
   @keyframes slideInFromTop {
     0% {
@@ -111,5 +119,4 @@
     100% {
       transform: translate(-50%, -50%);
     }
-  }
 }

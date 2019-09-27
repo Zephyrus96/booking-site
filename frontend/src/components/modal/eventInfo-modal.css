@@ -94,4 +94,10 @@
   font-size: 1.4rem;
   margin-right: 1rem;
 }
+
+@media screen and (max-width: 700px) {
+  .event-info__container {
+    width: 75%;
+  }
+}
 /*# sourceMappingURL=eventInfo-modal.css.map */
