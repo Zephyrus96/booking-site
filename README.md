@@ -60,7 +60,7 @@ I personally used `yarn` in this project, and to download either follow the step
 
 * On the terminal, cd into the project directory, delete the `yarn.lock` file, and run this command `npm install`. This should install all the package dependencies for the server found in `package.json`.
 * Similarly, cd into the `frontend` folder, delete the `yarn.lock` file, and run the same command. It should install the client exclusive dependencies.
-* Cd back into the root directory and run `npm dev`.
+* Cd back into the root directory and run `npm run dev`.
 * Both your client and server should be running!
 
 
