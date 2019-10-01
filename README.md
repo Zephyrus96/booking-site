@@ -23,8 +23,12 @@ The file looks like this:
 
 In your MongoDB account, navigate to the `Security` tab and select `Database Access`.
 
-This should show up:
+#### This should show up:
+
+
 ![Image of Screenshot](https://github.com/Zephyrus96/booking-site/blob/master/images/Screenshot%202019-10-01%20153916.png)
+
+
 
 * Click on `Add new user`.
 * Enter a username and password.
