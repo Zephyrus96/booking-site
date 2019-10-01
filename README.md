@@ -12,14 +12,14 @@ After creating both accounts, you'll need to edit the `nodemon.json` file found 
 
 The file looks like this:
 
-`{
+```{
   "env": {
     "MONGO_USER": "",
     "MONGO_PASSWORD": "",
     "MONGO_DB": "",
     "API_KEY": ""
   }
-}`
+}```
 
 In your MongoDB account, navigate to the `Security` tab and select `Database Access`.
 
