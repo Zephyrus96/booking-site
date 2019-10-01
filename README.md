@@ -21,7 +21,6 @@ The file looks like this:
     "API_KEY": ""
   }
 }
-
 ```
 
 In your MongoDB account, navigate to the `Security` tab and select `Database Access`.
