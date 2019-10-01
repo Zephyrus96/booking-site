@@ -1,4 +1,4 @@
-# How to run the app:
+# Follow these steps to run the app:
 
 ## Step 1:
 This app uses the Ticketmaster Discovery API, so head on over to https://developer.ticketmaster.com.
