@@ -31,7 +31,7 @@ const AuthPage = () => {
     }`;
 
     axios
-      .post("https://book-it-react-node.herokuapp.com/graphql", loginQuery)
+      .post("http://localhost:5000/graphql", loginQuery)
       .then(result => console.log(result));
   };
 

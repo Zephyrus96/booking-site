@@ -38,7 +38,7 @@ const BookingsPage = () => {
 
   const getBookings = async () => {
     const res = await axios({
-      url: "https://book-it-react-node.herokuapp.com/graphql",
+      url: "http://localhost:5000/graphql",
       method: "post",
       data: {
         query: `query {
@@ -76,7 +76,7 @@ const BookingsPage = () => {
     setLoading(true);
     setEventClicked(false);
     const res = await axios({
-      url: "https://book-it-react-node.herokuapp.com/graphql",
+      url: "http://localhost:5000/graphql",
       method: "post",
       data: {
         query: `mutation{

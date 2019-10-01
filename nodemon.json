@@ -1,8 +1,8 @@
 {
   "env": {
-    "MONGO_USER": "Bazman",
-    "MONGO_PASSWORD": "bazman96",
-    "MONGO_DB": "events-db",
-    "API_KEY": "8rSSwSsxdi8CCyPeSe8w7ROerzWc7eLw"
+    "MONGO_USER": "",
+    "MONGO_PASSWORD": "",
+    "MONGO_DB": "",
+    "API_KEY": ""
   }
 }

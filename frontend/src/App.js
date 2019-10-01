@@ -19,7 +19,7 @@ import "./App.css";
 
 function App() {
   const link = createHttpLink({
-    uri: "https://book-it-react-node.herokuapp.com/graphql",
+    uri: "http://localhost:5000/graphql",
     credentials: "include"
   });
 
